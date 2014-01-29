@@ -24,8 +24,11 @@ def main():
     if not opts.webapp:
         parser.error('-w must be defined')
 
-    ctx = {'django': 'cd %s; %s manage.py' % (opts.webapp, opts.python)}
+    ctx = {}
+    ctx['django'] = 'cd %s; %s manage.py' % (opts.webapp, opts.python)
     ctx['cron'] = '%s cron' % ctx['django']
+    ctx['webapp'] = opts.webapp
+    ctx['python'] = opts.python
 
     if opts.user:
         for k, v in ctx.iteritems():
