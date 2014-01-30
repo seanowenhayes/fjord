@@ -30,3 +30,4 @@ $PYTHONBIN $WEBAPP/bin/l10n_completion.py --truncate 90 $WEBAPP/media/l10n_compl
 
 echo 'Complete.'
 ls -l $WEBAPP/media/l10n_completion.json
+exit 1
