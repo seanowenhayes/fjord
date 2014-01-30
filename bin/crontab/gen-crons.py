@@ -24,8 +24,7 @@ def main():
     if not opts.webapp:
         parser.error('-w must be defined')
 
-    ctx = {}
-    ctx['django'] = 'cd %s; %s manage.py' % (opts.webapp, opts.python)
+    ctx = {'django': 'cd %s; %s manage.py' % (opts.webapp, opts.python)}
     ctx['cron'] = '%s cron' % ctx['django']
     ctx['webapp'] = opts.webapp
     ctx['python'] = opts.python
