@@ -26,14 +26,15 @@ def main():
 
     ctx = {'django': 'cd %s; %s manage.py' % (opts.webapp, opts.python)}
     ctx['cron'] = '%s cron' % ctx['django']
-    ctx['webapp'] = opts.webapp
-    ctx['python'] = opts.python
 
     if opts.user:
         for k, v in ctx.iteritems():
             ctx[k] = '%s %s' % (opts.user, v)
 
     # Needs to stay below the opts.user injection.
+    if opts.user:
+        ctx['user'] = opts.user
+    ctx['webapp'] = opts.webapp
     ctx['python'] = opts.python
     ctx['header'] = HEADER
 
