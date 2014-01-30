@@ -17,3 +17,5 @@ cd ./locale && svn up && cd ..
 # Run l10n completion to calculate percent completed and update .json
 # file; keep 90 days of data
 $PYTHONBIN ./bin/l10n_completion.py --truncate 90 ./media/l10n_completion.json ./locale/
+
+echo "Completed."
